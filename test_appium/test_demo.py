@@ -20,7 +20,7 @@ class TestDemo:
         caps['settings[waitForIdleTimeout]'] = 0
         self.driver = webdriver.Remote("http://localhost:4723/wd/hub", caps)
         # 隐式等待，面向全局，只针对find方法
-        self.driver.implicitly_wait(10)
+        self.driver.implicitly_wait(6)
 
     def teardown(self):
         self.driver.quit()
@@ -30,7 +30,7 @@ class TestDemo:
             "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/"
             "android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/"
             "android.view.ViewGroup/android.widget.RelativeLayout[3]/android.widget.RelativeLayout/"
-            "android.widget.TextView")
+            "android.widget.TextView").get_attribute()
         el3.click()
 
     def test_daka(self):

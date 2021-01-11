@@ -1,0 +1,4 @@
+- find: //*[@resource-id='com.xueqiu.android:id/search_input_text']
+  action: find_and_send
+  content: alibaba
+

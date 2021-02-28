@@ -1,3 +1,4 @@
+import pytest
 import requests
 
 
@@ -6,11 +7,12 @@ def get_token():
     return r.json()['access_token']
 
 
-def test_defect_member():
+@pytest.mark.parametrize("tmp", range(20))
+def test_defect_member(tmp):
     get_member_url = f'https://qyapi.weixin.qq.com/cgi-bin/user/get?access_token={get_token()}&userid=999aaaa'
     r = requests.get(get_member_url)
     print(r.json())
-    assert '牛牛' == r.json()['name']
+    assert '张三' == r.json()['name']
 
 
 def test_update_member():
